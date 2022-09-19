@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using NSS.WebAPI.Data;
+using NSS.WebAPI.Respository;
+using NSS.WebAPI.Respository.Abstraction;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,10 @@ builder.Services.AddDbContext<NSSDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("NSSDb"));
 });
+
+builder.Services.AddScoped<ICustomerRepository, CustomerRespository>();
+
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 var app = builder.Build();
 

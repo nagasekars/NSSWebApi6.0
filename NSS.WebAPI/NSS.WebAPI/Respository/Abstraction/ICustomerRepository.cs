@@ -4,8 +4,8 @@ namespace NSS.WebAPI.Respository.Abstraction
 {
     public interface ICustomerRepository
     {
-        Task<IEnumerable<Customer>> GetAllCustomers();
-        Task<Customer> GetCustomer(int customerId);
+        Task<IEnumerable<Customer>> GetAllCustomersAsync();
+        Task<Customer> GetCustomerAsync(int customerId);
 
     }
 }

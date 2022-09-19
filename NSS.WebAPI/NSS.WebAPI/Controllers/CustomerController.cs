@@ -21,7 +21,7 @@ namespace NSS.WebAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllCustomers()
         {
-            var customers = await customerRepository.GetAllCustomers();
+            var customers = await customerRepository.GetAllCustomersAsync();
 
             if (customers != null)
             {
@@ -35,7 +35,7 @@ namespace NSS.WebAPI.Controllers
         [Route("{id:int}")]
         public async Task<IActionResult> GetCustomer(int id)
         {
-            var customer = await customerRepository.GetCustomer(id);
+            var customer = await customerRepository.GetCustomerAsync(id);
             if (customer != null)
             {
                 var customerDto = mapper.Map<Models.DTO.Customer>(customer);

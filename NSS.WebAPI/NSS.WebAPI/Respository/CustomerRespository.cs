@@ -13,12 +13,12 @@ namespace NSS.WebAPI.Respository
         {
             this.dbContext = dbContext;
         }
-        public async Task<IEnumerable<Customer>> GetAllCustomers()
+        public async Task<IEnumerable<Customer>> GetAllCustomersAsync()
         {
             return await dbContext.Customer.ToListAsync();
         }
 
-        public async Task<Customer> GetCustomer(int customerId)
+        public async Task<Customer> GetCustomerAsync(int customerId)
         {
             return await dbContext.Customer.FirstOrDefaultAsync(x => x.Id == customerId);
         }
